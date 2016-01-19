@@ -6,11 +6,13 @@ elasticsearch:
     - "9300:9300"
 logstash:
   image: logstash:latest
-  command: logstash -f /etc/logstash/conf.d/logstash.conf
+  command: logstash -f /etc/logstash/conf.d 
   volumes:
+    - ./logstash/logstash-input-github:/etc/logstash/plugins/logstash-input-github
     - ./logstash/config:/etc/logstash/conf.d
   ports:
     - "5000:5000"
+    - "5001:5001"
   links:
     - elasticsearch
 kibana:
