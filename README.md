@@ -71,6 +71,20 @@ By default, the stack exposes the following ports:
 
 *NOTE*: Configuration is not dynamically reloaded, you will need to restart the stack after any change in the configuration of a component.
 
+
+## Installing the included logstash-input-github plugin
+
+After the containers have started, go to logstash container shell, and do the
+following:
+
+```
+   $>plugin install /etc/logstash/plugins/logstash-input-github/logstash-input-github-2.0.2.gem
+   $>cp /etc/logstash/plugins/logstash-input-github/logstash-github.conf /etc/logstash/conf.d
+```
+
+This installs the logstash-input-github plugin, and also copies the included
+logstash-github.conf file. This is stored in `logstash/logstash-input-github` folder. 
+
 ## How can I tune Kibana configuration?
 
 The Kibana default configuration is stored in `kibana/config/kibana.yml`.
