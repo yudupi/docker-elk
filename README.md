@@ -63,9 +63,27 @@ By default, the stack exposes the following ports:
 * 9300: Elasticsearch TCP transport
 * 5601: Kibana
 
+Additional port exposed for logstash-input-github plugin:
+
+* 5001: github input to logstash
+
 *WARNING*: If you're using *boot2docker*, you must access it via the *boot2docker* IP address instead of *localhost*.
 
 *WARNING*: If you're using *Docker Toolbox*, you must access it via the *docker-machine* IP address instead of *localhost*.
+
+
+To overcome the above issue, you can enabling port-forwarding 
+to work - from host to container VM:
+
+All the ports being used by the ELK containers: 
+
+```
+>$ VBoxManage controlvm default natpf1 rule1,tcp,,5601,,5601
+>$ VBoxManage controlvm default natpf1 rule2,tcp,,5001,,5001
+>$ VBoxManage controlvm default natpf1 rule3,tcp,,9200,,9200
+>$ VBoxManage controlvm default natpf1 rule4,tcp,,9300,,9300
+>$ VBoxManage controlvm default natpf1 rule5,tcp,,5000,,5000
+```
 
 # Configuration
 
