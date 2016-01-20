@@ -82,6 +82,8 @@ following:
    $>cp /etc/logstash/plugins/logstash-input-github/logstash-github.conf /etc/logstash/conf.d
 ```
 
+`Note: You will need to restart the logstash container for this to take effect`
+
 This installs the logstash-input-github plugin, and also copies the included
 logstash-github.conf file. This is stored in `logstash/logstash-input-github` folder. 
 
